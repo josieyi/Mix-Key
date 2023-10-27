@@ -16,7 +16,7 @@ def arg_parse_clf():
     parser.add_argument('--num_layer', type=int, dest='num_layer', help='number of layers')
     parser.add_argument('--seed', type=int, dest='seed', help='seed')
     parser.add_argument('--gpu', type=str, dest='gpu', help='gpu')
-    parser.add_argument('--model_name', type=str, dest='model_name', help='model:GCN,GIN')
+    parser.add_argument('--model_name', type=str, dest='model_name', help='model:GCN,GIN,GAT,GraphSAGE')
     parser.add_argument('--max_num_nodes', type=str, dest='max_num_nodes', help='the shape[1] of features matrix')
     parser.add_argument('--batch_size', type=int, dest='batch_size', help='Batch size')
     parser.add_argument('--cuda', dest='cuda', type=int, help="if cuda")
@@ -54,11 +54,11 @@ def arg_parse_clf():
                         lr_patience=50,
                         lr_decay=0,
                         train_type='retrain',
-                        split='random',
+                        split='scaffold',
                         ratio=0.15,
                         iter=1,
                         sample='group',
-                        task_flag=1,
+                        task_flag=0,
                         task_num=1)
     return parser.parse_args()
 
