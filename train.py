@@ -294,20 +294,17 @@ def main(args):
             idx_train_aug = [i + len(graphs) for i in idx_trains]
 
             # feature fusion
-            if args.train_type == 'retrain':
-                scaffold_dataset = aug_data_all[0][num]
-                group_dataset = aug_data_all[1][num]
-                scaffold_graph = aug_graph_all[0][num]
-                group_graph = aug_graph_all[1][num]
+            scaffold_dataset = aug_data_all[0][num]
+            group_dataset = aug_data_all[1][num]
+            scaffold_graph = aug_graph_all[0][num]
+            group_graph = aug_graph_all[1][num]
 
-                fusion_model = fusion(args, idx_trains, idx_train_aug, dataset, scaffold_dataset, group_dataset,
-                                      graphs, scaffold_graph, group_graph, device)
-                final_dataset = fusion_model.fusion_graph()
-                all_final_dataset = dataset + final_dataset
-                idx_trains_aug = [i + len(dataset) for i in range(len(final_dataset))]
-            else:
-                all_final_dataset = dataset
-
+            fusion_model = fusion(args, idx_trains, idx_train_aug, dataset, scaffold_dataset, group_dataset,
+                                  graphs, scaffold_graph, group_graph, device)
+            final_dataset = fusion_model.fusion_graph()
+            all_final_dataset = dataset + final_dataset
+            
+            idx_trains_aug = [i + len(dataset) for i in range(len(final_dataset))]
             idx_trains = torch.hstack((idx_trains, torch.tensor(idx_trains_aug).to(device))).to(device)
 
             logging.info('train model ...')
