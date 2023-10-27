@@ -263,9 +263,7 @@ def main(args):
             for num in range(args.iter):
                 ori_dataset = deepcopy(dataset)
                 ori_graphs = deepcopy(graphs)
-                aug_dir = './Experiments/Data/{}_AUG_{}/{}/{}/'.format(args.bmname, args.ratio, args.sample, num)
                 args.num = num
-                os.makedirs(aug_dir)
                 logging.info('Data augmentation ...')
                 for graph in graphs:
                     graph.graph['stand'] = 1
