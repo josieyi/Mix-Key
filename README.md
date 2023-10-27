@@ -2,9 +2,7 @@
 
 ## Framework
 
-<div align='center'>
-<p><img src="figures/Mix-Key Framework.jpeg" width='500' /></p>
-</div>
+![image](https://github.com/josieyi/Mix-Key/blob/main/figures/Mix-Key%20Framework.jpg)
 
 ## Usage:
 
