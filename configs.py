@@ -53,11 +53,11 @@ def arg_parse_clf():
                         lr_gamma=0.9,
                         lr_patience=50,
                         lr_decay=0,
-                        train_type='retrain',
+                        train_type='train',
                         split='scaffold',
                         ratio=0.15,
                         iter=1,
-                        sample='group',
+                        sample='scaffold',
                         task_flag=0,
                         task_num=1)
     return parser.parse_args()
