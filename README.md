@@ -13,6 +13,7 @@ python train.py --bmname {dataset name} --train_type train --task_type {reg/clas
 2. Molecular Property Prediction
 ```
 python train.py --bmname {dataset name} --train_type retrain --task_type {reg/class}
+```
 
 ## Experimental Details:
 
